@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f5f5f5;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.panel {
+    flex: 1;
+    margin: 10px;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    cursor: pointer;
+    transition: flex 0.5s ease-in-out, transform 0.3s, box-shadow 0.3s;
+}
+
+.panel:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.panel.active {
+    flex: 5;
+}
+
+.panel:not(.active) {
+    flex: 1;
+}
+
+.panel .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.panel:hover .overlay,
+.panel.active .overlay {
+    opacity: 1;
+}
+
+.panel h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.panel p {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .panel {
+        height: 300px;
+        margin: 5px 0;
+    }
+}
